@@ -5,3 +5,8 @@ if (STATUS === "ONLINE") {
 } else {
     console.log("Sistema RFID apagado o en error");
 }
+
+// Comentario de una línea
+/*
+Comentario de varias líneas
+*/
