@@ -1,0 +1,37 @@
+name: CI/CD Pipeline Demostration
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Ejecutar pruebas (CI)
+        run: npm test
+
+  CD:
+    needs: CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Desplegar aplicación (Simulación CD)
+        run: |
+          echo "Conectando a servidor de producción..."
+          sleep 2
+          echo "Desplegando versión v1.0 del Sistema RFID..."
+          sleep 2
+          echo "Éxito: Despliegue completado."
