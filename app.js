@@ -1,4 +1,4 @@
-const STATUS = "ONLINE";
+const STATUS = "OFFLINE";
 
 if (STATUS === "ONLINE") {
     console.log("Sistema RFID operando correctamente [STATUS: ONLINE]");
